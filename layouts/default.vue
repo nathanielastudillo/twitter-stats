@@ -70,7 +70,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Twitter Stats'
+      title: 'Archive Stats'
     }
   }
 }
