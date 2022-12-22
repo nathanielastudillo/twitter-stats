@@ -19,6 +19,8 @@ export default {
     ]
   },
 
+  targetL: 'static',
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
@@ -60,8 +62,4 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  server: {
-    port: process.env.PORT || 3001, // default: 3000
-    host: '0.0.0.0' // default: localhost
-  }
 }
