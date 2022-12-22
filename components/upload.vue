@@ -5,8 +5,8 @@
         </v-card-title>
         <v-card-text>
           <p>
-            Select your tweets.js file to get insights into your tweeting.
-            You data doesn't leave your phone.
+            Select your tweets.js file (data/tweets.js) to get insights into your tweeting.
+            You data doesn't leave your device.
           </p>
         </v-card-text>
         <v-card-actions>

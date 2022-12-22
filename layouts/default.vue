@@ -13,6 +13,7 @@
       Tip Me 
       <v-icon medium right>mdi-hand-coin</v-icon>
     </v-btn>
+    
     </v-app-bar>
     <v-main>
       <v-container>

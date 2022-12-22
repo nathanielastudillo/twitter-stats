@@ -36,8 +36,20 @@
           mainIcon="mdi-home-floor-1"
           badgeIcon="mdi-clock"
         ></DataCardText>
+        <v-col>
+          <v-btn @click="clear">Clear</v-btn>
+        </v-col>
       </v-col>
     </v-row>
+    <v-progress-circular
+        v-else
+        class="ma-6"
+      :size="70"
+      :width="10"
+      :value = 70
+      color="blue"
+      indeterminate
+    ></v-progress-circular>
   </v-container>
 </template>
 
@@ -73,6 +85,15 @@ function stripNonWords(str) {
 
 export default {
   name: "Stats",
+  data() {
+    return {
+        attrs: {
+        class: 'ma-6',
+        boilerplate: true,
+        elevation: 2,
+      },
+    };
+  },
   mounted() {
     this.readFile();
   },
@@ -87,6 +108,11 @@ export default {
         this.$store.commit("stats/setArchiveJSON", strippedTilBrackets);
       };
       reader.readAsText(file);
+    },
+    clear() {
+      this.$store.commit("stats/setArchive", null);
+      this.$store.commit("stats/setArchiveJSON", null);
+      this.$router.push("/");
     },
   },
   computed: {
