@@ -1,6 +1,6 @@
 <template>
   <v-card class="ma-3">
-    <v-badge overlap large color="blue" :icon="badgeIcon">
+    <v-badge class="ma-1" overlap large color="blue" :icon="badgeIcon">
       <v-icon x-large>{{ mainIcon }}</v-icon>
     </v-badge>
 

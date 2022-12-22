@@ -1,30 +1,12 @@
 <template>
 <v-container>
-                <v-card>
+                <v-card class="ma-3">
                     <v-card-title>
                         <h1>Stats</h1>
-                        <v-subtitle v-if="$store.state.stats.archiveJSON">As of {{ dateOfMostRecentTweet }}</v-subtitle>
                     </v-card-title>
-                    <v-card-text v-if="$store.state.stats.archiveJSON">
-                        
-                        <p>
-                            {{ "Most Recent Archive Tweet: " + mostRecentTweet }}
-                            <br><br>
-                            {{ "First Archive Tweet: " + firstTweet }}
-                            <br><br>
-                            {{ "Keys: " }}
-                            <br><br>
-                            <!-- bulleted list of tweetKeys -->
-                            <ul>
-                                <li v-for="key in tweetKeys" :key="key">
-                                    {{ key }}
-                                </li>
-                            </ul>
-                        </p>
-
-                    </v-card-text>
+                    <v-card-subtitle v-if="$store.state.stats.archiveJSON">As of {{ dateOfMostRecentTweet }}</v-card-subtitle>
                 </v-card>
-                        <v-row> 
+                        <v-row v-if="$store.state.stats.archiveJSON"> 
                             <v-col>
                                 <DataCardNumeric
                                         width="30%"
@@ -73,21 +55,16 @@ function stripUpToFirstBracket(str) {
     export default {
     name: "Stats",
     mounted() {
-        console.log("mounted stats");
         this.readFile();
     },
     components: { DataCardNumeric },
     methods: {
         async readFile() {
-            console.log("readFile");
             const file = this.$store.state.stats.archive;
-            console.log("file", file);
             const reader = new FileReader();
             reader.onload = (e) => {
-                console.log("reader.onload");
                 const text = e.target.result;
                 this.$store.commit("stats/setArchiveJSON", stripUpToFirstBracket(text));
-                console.log("text", text);
             };
             reader.readAsText(file);
         }
@@ -113,7 +90,9 @@ function stripUpToFirstBracket(str) {
             return numWords;
         },
         dateOfMostRecentTweet() {
-            return this.$store.state.stats.archiveJSON[0].tweet.created_at;
+            const options = { year: 'numeric', month: 'long', day: 'numeric' }
+            const date = Date.parse(this.$store.state.stats.archiveJSON[0].tweet.created_at)
+            return new Date(date).toLocaleDateString("en-US", options)
         },
     },
     components: { DataCard, DataCardNumeric, DataCardText, DataCardText }

@@ -39,25 +39,9 @@
             }
         },
         methods: {
-    //         openFileDialog() {
-    //   // open the file input dialog
-    //   this.$refs.fileInput.click()
-    // },
-    // async uploadFile() {
-    //   // get the file from the input
-    //   this.file = this.$refs.fileInput.files[0]
-    //   console.log('set archive', this.file.name)
-    //   this.$store.commit('stats/setArchive', this.$refs.fileInput.files[0])
-    // },
-    // saveFile() {
-    //   // commit a mutation to save the file to the store
-      
-    // }
     onFileSelected(event) {
         this.file = event.target.files[0]
-        console.log('stats/setArchive', this.file.name)
         this.$store.commit('stats/setArchive', event.target.files[0])
-        // push to stats page
         this.$router.push('/stats')
         }
     }
