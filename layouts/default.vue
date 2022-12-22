@@ -5,7 +5,6 @@
       fixed
       app
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer />
     </v-app-bar>
