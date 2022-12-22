@@ -1,5 +1,7 @@
 # twitter-stats
 
+A webapp to get some insight into your tweets built on Nuxt.
+
 ## Build Setup
 
 ```bash
