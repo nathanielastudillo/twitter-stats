@@ -7,6 +7,12 @@
     >
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer />
+      <v-btn color="blue"
+      target="_blank"
+      href="https://donate.stripe.com/00g29kdkR3oQ6yI4gg">
+      Tip Me 
+      <v-icon medium right>mdi-hand-coin</v-icon>
+    </v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
